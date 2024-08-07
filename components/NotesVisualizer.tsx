@@ -1,6 +1,4 @@
 import {
-  FlatList,
-  Modal,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -10,22 +8,7 @@ import { useState } from "react"
 import { Note } from "@/models/note"
 import VisualizeNoteModal from "@/components/VisualizeNoteModal"
 
-export default function NotesVisualizer() {
-  const [notes, setNotes] = useState<Note[]>([
-    {
-      id: 1,
-      title: "Title 1",
-      content: "Content 1",
-      createdAt: new Date(),
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      content: "Content 2",
-      createdAt: new Date(),
-    },
-  ])
-
+export default function NotesVisualizer(props: any) {
   const [modalOpened, setModalOpened] = useState<boolean>(false)
   const [selectedModal, setSelectedModal] = useState<Note | null>()
 
@@ -41,7 +24,7 @@ export default function NotesVisualizer() {
 
   return (
     <View style={styles.container}>
-      {notes.map((itemData) => (
+      {props.notes.map((itemData: Note) => (
         <TouchableOpacity
           key={itemData.id}
           style={styles.noteVisualizer}

@@ -1,7 +1,31 @@
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, TouchableOpacity, View } from "react-native"
+import { useState } from "react"
+import CreateNoteModal from "@/components/CreateNoteModal"
 
-export default function FloatingActionButton() {
-  return <View style={styles.container}></View>
+export default function FloatingActionButton(props: any) {
+  const [modalOpened, setModalOpened] = useState<boolean>(false)
+
+  function openModal() {
+    setModalOpened(true)
+  }
+
+  function closeModal() {
+    setModalOpened(false)
+  }
+
+  return (
+    <View>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={openModal}
+      ></TouchableOpacity>
+      <CreateNoteModal
+        visible={modalOpened}
+        onRequestClose={closeModal}
+        onAddNote={props.onAddNote}
+      />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
