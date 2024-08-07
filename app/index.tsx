@@ -1,7 +1,7 @@
 import { StatusBar, StyleSheet, Text, View } from "react-native"
-import Filters from "@/app/Filters"
-import NotesVisualizer from "@/app/NotesVisualizer"
-import FloatingActionButton from "@/app/FloatingActionButton"
+import Filters from "@/components/Filters"
+import NotesVisualizer from "@/components/NotesVisualizer"
+import FloatingActionButton from "@/components/FloatingActionButton"
 
 export default function Index() {
   return (
