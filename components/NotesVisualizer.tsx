@@ -8,6 +8,7 @@ import {
 } from "react-native"
 import { useState } from "react"
 import { Note } from "@/models/note"
+import VisualizeNoteModal from "@/components/VisualizeNoteModal"
 
 export default function NotesVisualizer() {
   const [notes, setNotes] = useState<Note[]>([
@@ -50,19 +51,11 @@ export default function NotesVisualizer() {
           <Text style={styles.p}>{itemData.content}</Text>
         </TouchableOpacity>
       ))}
-      <Modal
+      <VisualizeNoteModal
         visible={modalOpened}
-        animationType="slide"
         onRequestClose={closeModal}
-      >
-        <View style={styles.noteOpened}>
-          <Text style={styles.noteOpenedData}>
-            {selectedModal?.createdAt.toString()}
-          </Text>
-          <Text style={styles.noteOpenedTitle}>{selectedModal?.title}</Text>
-          <Text style={styles.noteOpenedContent}>{selectedModal?.content}</Text>
-        </View>
-      </Modal>
+        selectedModal={selectedModal}
+      />
     </View>
   )
 }
@@ -91,27 +84,5 @@ const styles = StyleSheet.create({
   p: {
     color: "rgba(255, 255, 255, 0.52)",
     fontWeight: "400",
-  },
-  noteOpened: {
-    backgroundColor: "#1B1B1F",
-    width: "100%",
-    height: "100%",
-    paddingHorizontal: 20,
-    paddingTop: 80,
-  },
-  noteOpenedData: {
-    color: "rgba(255, 255, 255, 0.70)",
-    fontWeight: "300",
-    textTransform: "uppercase",
-  },
-  noteOpenedTitle: {
-    color: "#FFF",
-    fontWeight: "700",
-    fontSize: 36,
-  },
-  noteOpenedContent: {
-    color: "#FFF",
-    fontSize: 26,
-    marginTop: 20,
   },
 })
