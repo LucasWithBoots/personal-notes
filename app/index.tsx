@@ -1,5 +1,4 @@
 import { StatusBar, StyleSheet, Text, View } from "react-native"
-import Filters from "@/components/Filters"
 import NotesVisualizer from "@/components/NotesVisualizer"
 import FloatingActionButton from "@/components/FloatingActionButton"
 import { useState } from "react"
@@ -9,14 +8,9 @@ export default function Index() {
   const [notes, setNotes] = useState<Note[]>([
     {
       id: 1,
-      title: "Title 1",
-      content: "Content 1",
-      createdAt: new Date(),
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      content: "Content 2",
+      title: "Lorem Ipsum",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet odio iaculis dui porta molestie. Aenean faucibus tempus augue et eleifend. Nunc scelerisque, urna quis blandit hendrerit.",
       createdAt: new Date(),
     },
   ])
@@ -33,7 +27,6 @@ export default function Index() {
           <Text style={styles.headerH1}>personal notes</Text>
         </View>
 
-        <Filters />
         <View style={styles.notesVisualizer}>
           <NotesVisualizer notes={notes} />
         </View>

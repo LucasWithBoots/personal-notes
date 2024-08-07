@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native"
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native"
 import { useState } from "react"
 import CreateNoteModal from "@/components/CreateNoteModal"
 
@@ -15,10 +15,9 @@ export default function FloatingActionButton(props: any) {
 
   return (
     <View>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={openModal}
-      ></TouchableOpacity>
+      <TouchableOpacity style={styles.container} onPress={openModal}>
+        <Image style={styles.imageIcon} source={require("../assets/add.png")} />
+      </TouchableOpacity>
       <CreateNoteModal
         visible={modalOpened}
         onRequestClose={closeModal}
@@ -34,5 +33,12 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 100,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imageIcon: {
+    width: "80%",
+    height: "80%",
   },
 })
