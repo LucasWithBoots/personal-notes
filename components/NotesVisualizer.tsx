@@ -57,10 +57,11 @@ const styles = StyleSheet.create({
   h1: {
     color: "#FFF",
     fontSize: 20,
-    fontWeight: "500",
+    fontFamily: "Roboto-Medium",
   },
   p: {
     color: "rgba(255, 255, 255, 0.52)",
     fontWeight: "400",
+    fontFamily: "Roboto-Regular",
   },
 })

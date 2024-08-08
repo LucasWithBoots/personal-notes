@@ -3,6 +3,7 @@ import NotesVisualizer from "@/components/NotesVisualizer"
 import FloatingActionButton from "@/components/FloatingActionButton"
 import { useState } from "react"
 import { Note } from "@/models/note"
+import { useFonts } from "expo-font"
 
 export default function Index() {
   const [notes, setNotes] = useState<Note[]>([
@@ -14,6 +15,17 @@ export default function Index() {
       createdAt: new Date(),
     },
   ])
+
+  const [fontsLoaded] = useFonts({
+    "FrankRuhlLibre-Bold": require("../assets/fonts/Frank_Ruhl_Libre/FrankRuhlLibre-Bold.ttf"),
+    "Roboto-Medium": require("../assets/fonts/Roboto/Roboto-Medium.ttf"),
+    "Roboto-Regular": require("../assets/fonts/Roboto/Roboto-Regular.ttf"),
+    "RobotoCondensed-Light": require("../assets/fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return <Text>LOADING</Text>
+  }
 
   function handleNewNote(newNote: Note) {
     setNotes((prevNotes) => [...prevNotes, newNote])
@@ -49,9 +61,9 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   headerH1: {
+    fontFamily: "FrankRuhlLibre-Bold",
     color: "#FFFFFF",
     fontSize: 36.35,
-    fontWeight: "bold",
     marginBottom: 40,
   },
   notesVisualizer: {

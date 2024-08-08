@@ -10,18 +10,20 @@ const stylesOpenedStyle = StyleSheet.create({
   },
   noteDate: {
     color: "rgba(255, 255, 255, 0.70)",
-    fontWeight: "300",
     textTransform: "uppercase",
+    fontFamily: "RobotoCondensed-Light",
+    fontSize: 16,
   },
   noteTitle: {
     color: "#FFF",
-    fontWeight: "700",
     fontSize: 36,
+    fontFamily: "Roboto-Medium",
   },
   noteContent: {
     color: "#FFF",
     fontSize: 26,
     marginTop: 20,
+    fontFamily: "Roboto-Regular",
   },
 })
 
